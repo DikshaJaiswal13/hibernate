@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "src/hibernate-mapping-3.0.dtd"> <!-- will download from internet -->
+<!--  mapping file -->
+          <hibernate-mapping> 
+          	<class name="com.pack.model.Employee" table="employee100" dynamic-update="true"><!-- employee100 is the name of the table to be created -->
+          		<id name="id" column="emp_id">
+          		<generator class="assigned"></generator>
+          		</id>
+          		<property name="name" column="empname"></property>    <!-- property name taken from persistent class that is Employee.java -->
+          		<property name="salary"></property>
+          		<property name="dob"></property>
+          		<property name="designation"></property>
+          	</class>
+         	
+          </hibernate-mapping>

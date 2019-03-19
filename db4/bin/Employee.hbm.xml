@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "src/hibernate-mapping-3.0.dtd"> <!-- will download from internet -->
+<!--  mapping file -->
+          <hibernate-mapping> 
+          	<class name="com.pack.Employee" table="employee300" discriminator-value="emp"><!-- indicates that it belongs to employee persistence class --><!-- employee300 is the name of the table to be created -->
+          		<id name="id">
+          		<generator class="increment"> <!-- starts with 1,2,3,... --></generator>
+          		</id>
+          		<discriminator column="emptype" type="string"><!-- emptype col has value emp from discriminator-value --></discriminator>
+          		<property name="name"></property>    <!-- property name taken from persistent class that is Employee.java -->
+          		
+          		<subclass name="com.pack.Regular_Employee" discriminator-value="reg_emp">
+          		<property name="salary"></property>
+          		<property name="bonus"></property>
+          		</subclass>
+          		<subclass name="com.pack.Contract_Employee" discriminator-value="con_emp">
+          		<property name="pay_hour"></property>
+          		<property name="contract_duration"></property>
+          		</subclass>
+          	</class>
+         	
+          </hibernate-mapping>
